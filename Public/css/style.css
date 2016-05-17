@@ -1,0 +1,13 @@
+#page {
+  width: 70vw;
+  margin: 0 auto; }
+
+#buttons {
+  float: right; }
+
+.mainButton {
+  width: 9vh; }
+
+.view {
+  height: 100vh;
+  background: grey; }
