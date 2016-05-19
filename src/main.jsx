@@ -7,7 +7,8 @@ var Text = require('./components/views/Text.jsx');
 var Twitter = require('./components/views/Twitter.jsx');
 var Carrousel = require('./components/views/Carrousel.jsx');
 var Facebook = require('./components/views/Facebook.jsx');
-var Button = require('./components/Button.jsx');
+var ButtonList = require('./components/buttons/ButtonList.jsx');
+var ViewList = require('./components/ViewList.jsx');
 
 var scroll = Scroll.animateScroll;
 
@@ -20,43 +21,22 @@ var viewArr = [{"id":1,"name":"Image","type":Image},{"id":2,"name":"Text", "type
 var Main = React.createClass({
   handleMBClick: function(item){
     var dest = document.getElementById(item.name).offsetTop;
-    this.scrollTo(dest);
-  },
-  scrollTo: function(dest) {
     scroll.scrollTo(dest);
   },
   render: function(){
     return (
       <div >
-      <ButtonList handleClick={this.handleMBClick} />
-      <ViewList />
+      <ButtonList handleClick={this.handleMBClick} views={viewArr} />
+      <ViewList views={viewArr} />
       </div>
     )
   }
 });
 
 
-var ButtonList = React.createClass({
-  eachButton: function(item){
-    boundClick = this.props.handleClick.bind(this, item);
-    return <Button key={item.id} ref={item.name} name={item.name} click={boundClick}/>
-  },
-  render: function(){
-    var buttons = viewArr.map(this.eachButton)
-    return <div id='buttons'>{buttons}</div>
-  }
-});
 
-var ViewList = React.createClass({
 
-  eachView: function(item){
-    return <div className='view' id={item.name} key={item.id}> <item.type /> </div>
-  },
-  render: function(){
-    var views = viewArr.map(this.eachView);
-    return <div>{views}</div>
-  }
-});
+
 
 
 ReactDOM.render(<Main />, document.getElementById('page'));
