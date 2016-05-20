@@ -29,7 +29,13 @@ var Twitter = React.createClass({
     this.setState({tweets : rendTweets});
   },
    render: function(){
-    return <div>{this.state.tweets}</div>;
+    return (
+      <div>
+      <img className="tw-logo" src="media/twitterLogo.png" alt="twitter logo" />
+      <div>
+      {this.state.tweets}
+      </div>
+      </div>)
   }
 });
 

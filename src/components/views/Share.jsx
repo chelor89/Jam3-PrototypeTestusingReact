@@ -2,7 +2,7 @@ var React = require('react');
 
 
 
-var Facebook = React.createClass({
+var Share = React.createClass({
   componentWillMount: function(){
     window.fbAsyncInit = function() {
       FB.init({
@@ -39,4 +39,4 @@ var Facebook = React.createClass({
   }
 });
 
-module.exports = Facebook;
+module.exports = Share;
