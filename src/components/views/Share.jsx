@@ -30,7 +30,7 @@ var Share = React.createClass({
   render: function(){
     return (
       <div>
-      <img className="fb-logo" src="media/faceLogo.png" alt="facebook logo" />
+      <img className="fb-logo" src="public/media/faceLogo.png" alt="facebook logo" />
       <img className="share-img" src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
        alt="Kayak Lake Mountains" />
       <button type="button" onClick={this.share}>Share</button>

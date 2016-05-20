@@ -8,7 +8,7 @@ var Image = React.createClass({
       margin: '0 auto'
     };
     return (
-      <img src="media/jam3Logo.gif" alt="Jam3 Logotype" style={styles} />
+      <img src="public/media/jam3Logo.gif" alt="Jam3 Logotype" style={styles} />
     )
   }
 });

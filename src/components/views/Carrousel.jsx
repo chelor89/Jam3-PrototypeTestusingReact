@@ -12,7 +12,7 @@ var Carrousel = React.createClass({
 
   buildImages(list) {
     return list.map(function(val){
-      return <img src={"media/" + val + ".jpg"} key={val} />;
+      return <img src={"public/media/" + val + ".jpg"} key={val} />;
     })
   },
 

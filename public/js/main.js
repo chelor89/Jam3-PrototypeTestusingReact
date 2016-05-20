@@ -21982,7 +21982,7 @@ var Carrousel = React.createClass({
 
   buildImages(list) {
     return list.map(function (val) {
-      return React.createElement('img', { src: "media/" + val + ".jpg", key: val });
+      return React.createElement('img', { src: "public/media/" + val + ".jpg", key: val });
     });
   },
 
@@ -22009,7 +22009,7 @@ var Image = React.createClass({
       height: '400px',
       margin: '0 auto'
     };
-    return React.createElement('img', { src: 'media/jam3Logo.gif', alt: 'Jam3 Logotype', style: styles });
+    return React.createElement('img', { src: 'public/media/jam3Logo.gif', alt: 'Jam3 Logotype', style: styles });
   }
 });
 
@@ -22051,7 +22051,7 @@ var Share = React.createClass({
     return React.createElement(
       'div',
       null,
-      React.createElement('img', { className: 'fb-logo', src: 'media/faceLogo.png', alt: 'facebook logo' }),
+      React.createElement('img', { className: 'fb-logo', src: 'public/media/faceLogo.png', alt: 'facebook logo' }),
       React.createElement('img', { className: 'share-img', src: 'http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG',
         alt: 'Kayak Lake Mountains' }),
       React.createElement(
@@ -22136,7 +22136,7 @@ var Twitter = React.createClass({
     return React.createElement(
       "div",
       null,
-      React.createElement("img", { className: "tw-logo", src: "media/twitterLogo.png", alt: "twitter logo" }),
+      React.createElement("img", { className: "tw-logo", src: "public/media/twitterLogo.png", alt: "twitter logo" }),
       React.createElement(
         "div",
         null,
