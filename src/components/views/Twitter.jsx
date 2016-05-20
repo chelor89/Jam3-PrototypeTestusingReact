@@ -11,9 +11,8 @@ var Twitter = React.createClass({
         this.renderTweets(JSON.parse(xhttp.responseText));
       }
     }.bind(this);
-
-    xhttp.open("GET", "http://localhost:8080", true);
-    // xhttp.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:8081");
+    xhttp.open("GET", "http://" + window.location.hostname + ":8080", true);
+    xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
   },
   renderTweets: function(props) {

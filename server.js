@@ -9,9 +9,9 @@ var express = require('express')
   access_token: '432972257-z8OV8iHKW9WGMrozuv6mjK0cGpwannZVCRJRhfN0',
   access_token_secret: 'ZhPXeKwnEM9f6scxQuXqssjIt1BkQSTq9cujARCTjDg1N'
 });
-//app.use(cors());
 
 var app = express();
+app.use(cors());
 // publishing static elements
 app.use("/index", express.static("public"));
 

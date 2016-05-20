@@ -1,13 +1,146 @@
+#buttons {
+  width: 70vw;
+  height: 35px;
+  min-width: 534px; }
+  #buttons div {
+    padding: 0px;
+    margin: 0px;
+    float: right; }
+  #buttons button {
+    font: 15px /normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+    width: 80px;
+    padding: 8px;
+    background-color: #ffad33;
+    color: #ffffff;
+    border: 1px solid; }
+  #buttons button:hover {
+    background-color: #cc7a00; }
+
+#Image {
+  height: 400px;
+  color: #000000;
+  margin-bottom: 0.5vh; }
+
+#Text {
+  padding: 5%;
+  font-family: "Tahoma", Geneva, sans-serif;
+  font-size: 1.2em; }
+  #Text h1 {
+    text-align: center; }
+  #Text p {
+    text-align: justify; }
+
+#Twitter {
+  background: #ffffff;
+  color: #000000;
+  border: 6px solid #000000;
+  text-align: center;
+  height: auto;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif; }
+  #Twitter > div {
+    padding: 0 4% 4%;
+    margin: auto; }
+  #Twitter .tw-logo {
+    height: 150px; }
+  #Twitter .user {
+    display: inline-block;
+    padding: 2%; }
+    #Twitter .user h3, #Twitter .user h4 {
+      margin: 6% 0 0 0;
+      text-align: center; }
+    #Twitter .user img {
+      box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px #00ccff;
+      border-radius: 15px;
+      height: 90px;
+      width: auto;
+      display: block;
+      margin: auto; }
+
+#Carrousel {
+  height: 500px; }
+  #Carrousel img {
+    height: 500px;
+    width: auto;
+    display: block;
+    margin: auto; }
+
+#Share {
+  color: #000000;
+  background: #ffffff;
+  border: 6px solid #000000;
+  padding: 3%;
+  text-align: center; }
+  #Share div {
+    margin: auto; }
+  #Share .fb-logo {
+    height: 80px; }
+  #Share .share-img {
+    box-shadow: 0 0 0 1px #ffffff, 0 0 0 6px #3366cc;
+    margin: 30px auto;
+    height: auto;
+    width: 474px;
+    display: block; }
+  #Share button {
+    border-color: #29447e #29447e #1a356e;
+    color: #fff;
+    background-color: #5B74A8;
+    background-image: linear-gradient(#637bad, #5872a7);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    padding: 0.4em 0.9em 0.475em;
+    border: 1px solid #999;
+    font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; }
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: block; }
+
+.dropdown {
+  position: relative;
+  display: inline-block; }
+
+.dropdown-content {
+  background-color: #f9f9f9;
+  width: 70vw;
+  min-width: 536px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); }
+
+.dropdown-content a {
+  text-align: center;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; }
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; }
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41; }
+
 #page {
   width: 70vw;
+  min-width: 534px;
   margin: 0 auto; }
-
-#buttons {
-  float: right; }
-
-.mainButton {
-  width: 9vh; }
+  #page > div {
+    border-style: 5px solid; }
 
 .view {
-  height: 100vh;
-  background: grey; }
+  clear: both; }
+  .view > div {
+    padding: 0px;
+    height: auto;
+    background: #000000;
+    color: #ffffff; }
+
+.footer {
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  font: 18px/normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  padding-bottom: 1%; }

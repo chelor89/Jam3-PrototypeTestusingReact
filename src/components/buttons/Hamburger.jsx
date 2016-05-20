@@ -15,7 +15,7 @@ var Hamburger = React.createClass({
         return (
           <div id='buttons'>
             <div className="dropdown">
-              <button onClick={this.handleClick}  className="dropbtn">Dropdown</button>
+              <button onClick={this.handleClick}  className="dropbtn">&#9776; Menu</button>
               <div style={this.state.style} className="dropdown-content">
                 {this.props.buttons}
               </div>
