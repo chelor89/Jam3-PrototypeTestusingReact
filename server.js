@@ -13,7 +13,7 @@ var express = require('express')
 var app = express();
 app.use(cors());
 // publishing static elements
-app.use("/index", express.static("public"));
+app.use("/index", express.static("./"));
 
 
 //retrieving last 5 tweets with #jam3 hashtag

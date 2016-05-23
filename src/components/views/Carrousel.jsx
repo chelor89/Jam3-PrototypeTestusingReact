@@ -19,7 +19,7 @@ var Carrousel = React.createClass({
   render: function(){
     return (
        <Carousel >
-      {this.eachImage()}
+       {this.eachImage()}
       </Carousel>
     )
   }
