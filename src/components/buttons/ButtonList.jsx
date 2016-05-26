@@ -13,7 +13,9 @@ var ButtonList = React.createClass({
         click={this.boundClick(item.name)}/>
       }else {
         return (
-          <a className="menu-item" onClick={this.boundClick(item.name)} key={item.id}>{item.name}</a>
+          <div className="menu-item" onClick={this.boundClick(item.name)} key={item.id}>
+            <a >{item.name}</a>
+          </div>
         )
       }
   },
@@ -22,7 +24,12 @@ var ButtonList = React.createClass({
     if (this.props.size == "big"){
       return <div id='buttons'><div>{buttons}</div></div>
     }else {
-      return <Menu>{buttons}</Menu>;
+      return (
+          <Menu right width={200}>
+            {buttons}
+          </Menu>
+
+      )
     }
   }
 });

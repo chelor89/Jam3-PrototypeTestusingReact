@@ -1,7 +1,5 @@
 var React = require('react');
 
-
-
 var Share = React.createClass({
   componentWillMount: function(){
     window.fbAsyncInit = function() {
@@ -28,10 +26,14 @@ var Share = React.createClass({
     }, function(response){});
   },
   render: function(){
+    var imgClass = "share-img-big"
+    if (this.props.size == "small"){
+      imgClass = "share-img-small"
+    }
     return (
       <div>
       <img className="fb-logo" src="public/media/faceLogo.png" alt="facebook logo" />
-      <img className="share-img" src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
+      <img className={imgClass} src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
        alt="Kayak Lake Mountains" />
       <button type="button" onClick={this.share}>Share</button>
       </div>

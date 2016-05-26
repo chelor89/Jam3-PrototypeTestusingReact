@@ -35813,20 +35813,6 @@ var Footer = React.createClass({
 module.exports = Footer;
 
 },{"react":282}],285:[function(require,module,exports){
-// var React = require('react');
-//
-//
-//
-// var View = React.createClass({
-//   render: function(){
-//
-//     return <div id='view'> { this.props.views }  </div>
-//   }
-// });
-//
-// module.exports = View;
-
-},{}],286:[function(require,module,exports){
 var React = require('react');
 
 var ViewList = React.createClass({
@@ -35837,9 +35823,9 @@ var ViewList = React.createClass({
     if (item.id % 2 == 0) colorClass = "colorE";
     return React.createElement(
       "div",
-      { id: item.name, key: item.id, className: colorClass },
+      { id: item.name, key: item.id, className: colorClass, size: this.props.size },
       " ",
-      React.createElement(item.type, null),
+      React.createElement(item.type, { size: this.props.size }),
       " "
     );
   },
@@ -35855,7 +35841,7 @@ var ViewList = React.createClass({
 
 module.exports = ViewList;
 
-},{"react":282}],287:[function(require,module,exports){
+},{"react":282}],286:[function(require,module,exports){
 var React = require('react');
 
 var Button = React.createClass({
@@ -35873,7 +35859,7 @@ var Button = React.createClass({
 
 module.exports = Button;
 
-},{"react":282}],288:[function(require,module,exports){
+},{"react":282}],287:[function(require,module,exports){
 var React = require('react');
 var Button = require('./Button.jsx');
 var Menu = require('react-burger-menu').slide;
@@ -35890,9 +35876,13 @@ var ButtonList = React.createClass({
         click: this.boundClick(item.name) });
     } else {
       return React.createElement(
-        'a',
+        'div',
         { className: 'menu-item', onClick: this.boundClick(item.name), key: item.id },
-        item.name
+        React.createElement(
+          'a',
+          null,
+          item.name
+        )
       );
     }
   },
@@ -35911,7 +35901,7 @@ var ButtonList = React.createClass({
     } else {
       return React.createElement(
         Menu,
-        null,
+        { right: true, width: 200 },
         buttons
       );
     }
@@ -35920,7 +35910,7 @@ var ButtonList = React.createClass({
 
 module.exports = ButtonList;
 
-},{"./Button.jsx":287,"react":282,"react-burger-menu":8}],289:[function(require,module,exports){
+},{"./Button.jsx":286,"react":282,"react-burger-menu":8}],288:[function(require,module,exports){
 var React = require('react');
 var Carousel = require('nuka-carousel');
 
@@ -35952,25 +35942,25 @@ var Carrousel = React.createClass({
 
 module.exports = Carrousel;
 
-},{"nuka-carousel":1,"react":282}],290:[function(require,module,exports){
+},{"nuka-carousel":1,"react":282}],289:[function(require,module,exports){
 var React = require('react');
 
 var Image = React.createClass({
-  displayName: 'Image',
+  displayName: "Image",
+
 
   render: function () {
-    var styles = {
-      display: 'block',
-      height: '400px',
-      margin: '0 auto'
-    };
-    return React.createElement('img', { src: 'public/media/jam3Logo.gif', alt: 'Jam3 Logotype', style: styles });
+    var imageURL = "public/media/jam3Logo.gif";
+    if (this.props.size == "small") imageURL = "public/media/jam3LogoM.gif";
+
+    return React.createElement("img", { src: imageURL, alt: "Jam3 Logotype" });
   }
+
 });
 
 module.exports = Image;
 
-},{"react":282}],291:[function(require,module,exports){
+},{"react":282}],290:[function(require,module,exports){
 var React = require('react');
 
 var Share = React.createClass({
@@ -36003,11 +35993,15 @@ var Share = React.createClass({
     }, function (response) {});
   },
   render: function () {
+    var imgClass = "share-img-big";
+    if (this.props.size == "small") {
+      imgClass = "share-img-small";
+    }
     return React.createElement(
       'div',
       null,
       React.createElement('img', { className: 'fb-logo', src: 'public/media/faceLogo.png', alt: 'facebook logo' }),
-      React.createElement('img', { className: 'share-img', src: 'http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG',
+      React.createElement('img', { className: imgClass, src: 'http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG',
         alt: 'Kayak Lake Mountains' }),
       React.createElement(
         'button',
@@ -36020,7 +36014,7 @@ var Share = React.createClass({
 
 module.exports = Share;
 
-},{"react":282}],292:[function(require,module,exports){
+},{"react":282}],291:[function(require,module,exports){
 var React = require('react');
 
 var Text = React.createClass({
@@ -36046,7 +36040,7 @@ var Text = React.createClass({
 
 module.exports = Text;
 
-},{"react":282}],293:[function(require,module,exports){
+},{"react":282}],292:[function(require,module,exports){
 var React = require('react');
 
 var Twitter = React.createClass({
@@ -36062,8 +36056,8 @@ var Twitter = React.createClass({
         this.renderTweets(JSON.parse(xhttp.responseText));
       }
     }.bind(this);
-    //xhttp.open("GET", "http://" + window.location.hostname + ":8080", true);
-    xhttp.open("GET", "http://twitserve-63723.onmodulus.net/", true);
+    xhttp.open("GET", "http://" + window.location.hostname + ":8080?hash=hola", true);
+    //xhttp.open("GET", "http://twitserve-63723.onmodulus.net/", true);
 
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
@@ -36105,11 +36099,10 @@ var Twitter = React.createClass({
 
 module.exports = Twitter;
 
-},{"react":282}],294:[function(require,module,exports){
+},{"react":282}],293:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Scroll = require('react-scroll');
-var View = require('./components/View.jsx');
 var Image = require('./components/views/Image.jsx');
 var Text = require('./components/views/Text.jsx');
 var Twitter = require('./components/views/Twitter.jsx');
@@ -36122,7 +36115,7 @@ var Footer = require('./components/Footer.jsx');
 var scroll = Scroll.animateScroll;
 
 //viewArr = array of views. (Each view is a component)
-var viewArr = [{ "id": 1, "name": "Image", "type": Image }, { "id": 2, "name": "Text", "type": Text }, { "id": 3, "name": "Twitter", "type": Twitter }, { "id": 4, "name": "Carrousel", "type": Carrousel }, { "id": 5, "name": "Share", "type": Share }];
+var viewArr = [{ "id": 1, "name": "Image", "type": Image }, { "id": 2, "name": "Text", "type": Text }, { "id": 3, "name": "Twitter", "type": Twitter }, { "id": 4, "name": "Carousel", "type": Carrousel }, { "id": 5, "name": "Share", "type": Share }];
 
 var Main = React.createClass({
   displayName: 'Main',
@@ -36143,7 +36136,7 @@ var Main = React.createClass({
       'div',
       null,
       React.createElement(ButtonList, { handleClick: this.handleMBClick, views: viewArr, size: this.mobileCheck() }),
-      React.createElement(ViewList, { views: viewArr }),
+      React.createElement(ViewList, { views: viewArr, size: this.mobileCheck() }),
       React.createElement(Footer, null)
     );
   }
@@ -36151,4 +36144,4 @@ var Main = React.createClass({
 
 ReactDOM.render(React.createElement(Main, null), document.getElementById('page'));
 
-},{"./components/Footer.jsx":284,"./components/View.jsx":285,"./components/ViewList.jsx":286,"./components/buttons/ButtonList.jsx":288,"./components/views/Carrousel.jsx":289,"./components/views/Image.jsx":290,"./components/views/Share.jsx":291,"./components/views/Text.jsx":292,"./components/views/Twitter.jsx":293,"react":282,"react-dom":103,"react-scroll":108}]},{},[294]);
+},{"./components/Footer.jsx":284,"./components/ViewList.jsx":285,"./components/buttons/ButtonList.jsx":287,"./components/views/Carrousel.jsx":288,"./components/views/Image.jsx":289,"./components/views/Share.jsx":290,"./components/views/Text.jsx":291,"./components/views/Twitter.jsx":292,"react":282,"react-dom":103,"react-scroll":108}]},{},[293]);

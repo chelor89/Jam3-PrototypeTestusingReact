@@ -18,7 +18,7 @@ app.use("/index", express.static("./"));
 
 //retrieving last 5 tweets with #jam3 hashtag
 app.get('/', function (req, res) {
-  client.get('search/tweets', {q: '%23jam3',result_type: 'recent',count: 5},
+  client.get('search/tweets', {q: '%23' + req.query.hash ,result_type: 'recent',count: 5},
   function(error,data,response){
     if(error) throw error;
     res.stautsCode = 200;

@@ -17,14 +17,17 @@
     background-color: #cc7a00; }
 
 #Image {
-  height: 400px;
-  color: #000000;
+  color: #141414;
   margin-bottom: 0.5vh; }
+  #Image img {
+    display: block;
+    margin: 0 auto;
+    height: 400px; }
 
 #Text {
   padding: 5%;
   font-family: "Tahoma", Geneva, sans-serif;
-  font-size: 1.2em; }
+  font-size: 1.1em; }
   #Text h1 {
     text-align: center; }
   #Text p {
@@ -36,33 +39,38 @@
   border: 6px solid #000000;
   text-align: center;
   height: auto;
-  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif; }
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  font-size: 0.8em; }
   #Twitter > div {
     padding: 0 4% 4%;
     margin: auto; }
   #Twitter .tw-logo {
-    height: 150px; }
+    margin: 2%;
+    height: auto;
+    width: 65vmin; }
   #Twitter .user {
     display: inline-block;
-    padding: 2%; }
-    #Twitter .user h3, #Twitter .user h4 {
-      margin: 6% 0 0 0;
-      text-align: center; }
+    padding: 2%;
+    margin: 2%;
+    max-width: 30vmin;
+    text-align: center; }
+    #Twitter .user h3 {
+      margin: 15% 0 0; }
+    #Twitter .user h4 {
+      margin: 1% 0 0; }
     #Twitter .user img {
       box-shadow: 0 0 0 4px #ffffff, 0 0 0 8px #00ccff;
-      border-radius: 15px;
-      height: 90px;
-      width: auto;
+      border-radius: 16%;
+      height: auto;
+      width: 20vmin;
       display: block;
       margin: auto; }
 
-#Carrousel {
-  height: 500px; }
-  #Carrousel img {
-    height: 500px;
-    width: auto;
-    display: block;
-    margin: auto; }
+#Carousel img {
+  height: auto;
+  width: 80vmin;
+  display: block;
+  margin: auto auto; }
 
 #Share {
   color: #000000;
@@ -73,13 +81,22 @@
   #Share div {
     margin: auto; }
   #Share .fb-logo {
-    height: 80px; }
-  #Share .share-img {
+    margin-bottom: 1%;
+    height: auto;
+    width: 70vmin; }
+  #Share .share-img-big {
+    box-shadow: 0 0 0 1px #ffffff, 0 0 0 6px #3366cc;
+    margin: 2% auto;
+    display: block;
+    width: auto;
+    max-height: 53vh; }
+  #Share .share-img-small {
     box-shadow: 0 0 0 1px #ffffff, 0 0 0 6px #3366cc;
     margin: 30px auto;
+    display: block;
     height: auto;
-    width: 474px;
-    display: block; }
+    max-width: 270px;
+    max-width: 83vw; }
   #Share button {
     border-color: #29447e #29447e #1a356e;
     color: #fff;
@@ -88,19 +105,26 @@
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
     padding: 0.4em 0.9em 0.475em;
     border: 1px solid #999;
-    font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; }
+    font: bold 18px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
+    margin-bottom: 4%; }
+
+.bm-menu-wrap {
+  width: 50vw;
+  height: 100vh; }
 
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px; }
+  width: 30px;
+  height: 24px;
+  right: 30px;
+  top: 30px; }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47; }
+  background: #fff;
+  border: 0.8px solid #000;
+  border-radius: 2px; }
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
@@ -114,8 +138,10 @@
 /* General sidebar styles */
 .bm-menu {
   background: #373a47;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em; }
+  -webkit-user-select: none;
+  font-size: 2.2em;
+  font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  padding: 0.4em; }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
@@ -123,16 +149,21 @@
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
-  padding: 0.8em; }
+  color: #b8b7ad; }
 
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3); }
 
+.menu-item {
+  padding: 0.5em 0.1em;
+  border-bottom: 2px solid #bdc3c7; }
+  .menu-item:active {
+    background: #173a49; }
+
 #page {
   width: 100%;
-  min-width: 534px;
+  min-width: 314px;
   margin: 0 auto;
   padding: 0px; }
   #page > div {
@@ -141,6 +172,7 @@
 .view {
   clear: both; }
   .view > div {
+    max-height: 100vh;
     padding: 0px;
     height: auto;
     background: #000000;
