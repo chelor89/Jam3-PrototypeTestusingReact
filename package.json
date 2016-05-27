@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js",
+    "start": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js | nodemon -e sass -x \"npm run build-sass\" | node server.js",
+    "watch": "watchify src/main.jsx -v -t [ babelify --presets [ react ] ] -o public/js/main.js",
     "build-sass": "node-sass --include-path sass src/sass/main.sass public/css/style.css",
     "watch-sass": "nodemon -e sass -x \"npm run build-sass\"",
     "server": "node server.js"

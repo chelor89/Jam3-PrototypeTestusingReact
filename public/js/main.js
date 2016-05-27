@@ -35867,17 +35867,16 @@ var Menu = require('react-burger-menu').slide;
 var ButtonList = React.createClass({
   displayName: 'ButtonList',
 
-  boundClick: function (name) {
-    return this.props.handleClick.bind(null, name);
-  },
+
   eachButton: function (item) {
+    var boundClick = this.props.handleClick.bind(null, item.name);
     if (this.props.size == "big") {
       return React.createElement(Button, { key: item.id, ref: item.name, name: item.name,
-        click: this.boundClick(item.name) });
+        click: boundClick });
     } else {
       return React.createElement(
         'div',
-        { className: 'menu-item', onClick: this.boundClick(item.name), key: item.id },
+        { className: 'menu-item', onClick: boundClick, key: item.id },
         React.createElement(
           'a',
           null,
@@ -35901,7 +35900,7 @@ var ButtonList = React.createClass({
     } else {
       return React.createElement(
         Menu,
-        { right: true, width: 200 },
+        { right: true, width: 200, isOpen: this.props.open },
         buttons
       );
     }
@@ -36120,9 +36119,13 @@ var viewArr = [{ "id": 1, "name": "Image", "type": Image }, { "id": 2, "name": "
 var Main = React.createClass({
   displayName: 'Main',
 
+  getInitialState: function () {
+    return { open: false };
+  },
   handleMBClick: function (item) {
     var dest = document.getElementById(item).offsetTop;
     scroll.scrollTo(dest);
+    this.setState({ open: false });
   },
   mobileCheck: function () {
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
@@ -36135,7 +36138,7 @@ var Main = React.createClass({
     return React.createElement(
       'div',
       null,
-      React.createElement(ButtonList, { handleClick: this.handleMBClick, views: viewArr, size: this.mobileCheck() }),
+      React.createElement(ButtonList, { handleClick: this.handleMBClick, views: viewArr, size: this.mobileCheck(), open: this.state.open }),
       React.createElement(ViewList, { views: viewArr, size: this.mobileCheck() }),
       React.createElement(Footer, null)
     );

@@ -19,9 +19,13 @@ var viewArr = [{"id":1,"name":"Image","type":Image},{"id":2,"name":"Text", "type
 
 
 var Main = React.createClass({
+  getInitialState: function(){
+    return {open: false};
+  },
   handleMBClick: function(item){
     var dest = document.getElementById(item).offsetTop;
     scroll.scrollTo(dest);
+    this.setState({open: false});
   },
   mobileCheck: function(){
     if( navigator.userAgent.match(/Android/i)
@@ -40,7 +44,7 @@ var Main = React.createClass({
   render: function(){
     return (
       <div >
-      <ButtonList handleClick={this.handleMBClick} views={viewArr} size={this.mobileCheck()} />
+      <ButtonList handleClick={this.handleMBClick} views={viewArr} size={this.mobileCheck()} open={this.state.open} />
       <ViewList views={viewArr} size={this.mobileCheck()} />
       <Footer />
       </div>
