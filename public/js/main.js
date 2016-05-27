@@ -35920,7 +35920,7 @@ var Carousel = require('nuka-carousel');
 var Carrousel = React.createClass({
   displayName: 'Carrousel',
 
-  eachImage() {
+  eachImage: function () {
     var list = [];
     for (i = 1; i <= 7; i++) {
       list.push(i);
@@ -35928,7 +35928,7 @@ var Carrousel = React.createClass({
     return this.buildImages(list);
   },
 
-  buildImages(list) {
+  buildImages: function (list) {
     return list.map(function (val) {
       return React.createElement('img', { src: "public/media/" + val + ".jpg", key: val });
     });
@@ -35940,7 +35940,7 @@ var Carrousel = React.createClass({
       component: React.createClass({
         displayName: 'component',
 
-        render() {
+        render: function () {
           return React.createElement(
             'div',
             { onClick: this.props.previousSlide },
@@ -35956,7 +35956,7 @@ var Carrousel = React.createClass({
       component: React.createClass({
         displayName: 'component',
 
-        render() {
+        render: function () {
           return React.createElement(
             'div',
             { onClick: this.props.nextSlide },

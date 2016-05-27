@@ -2,7 +2,7 @@ var React = require('react');
 var Carousel = require('nuka-carousel');
 
 var Carrousel = React.createClass({
-  eachImage(){
+  eachImage: function(){
     var list = [];
     for (i = 1; i <= 7; i++){
         list.push(i);
@@ -10,7 +10,7 @@ var Carrousel = React.createClass({
     return this.buildImages(list);
   },
 
-  buildImages(list) {
+  buildImages: function(list) {
     return list.map(function(val){
       return <img src={"public/media/" + val + ".jpg"} key={val} />;
     })
@@ -20,7 +20,7 @@ var Carrousel = React.createClass({
     var styles = {height: "10vmin", width: "auto"};
     var Decorators = [{
         component: React.createClass({
-          render() {
+          render: function() {
             return (
               <div onClick={this.props.previousSlide}>
                 <img className="arrow" src='public/media/arrow-left.png' style={styles} />
@@ -35,7 +35,7 @@ var Carrousel = React.createClass({
       },
       {
           component: React.createClass({
-            render() {
+            render: function() {
               return (
                 <div onClick={this.props.nextSlide}>
                   <img className="arrow" src='public/media/arrow-right.png' style={styles} />
