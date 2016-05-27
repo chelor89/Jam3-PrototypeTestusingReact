@@ -35805,7 +35805,11 @@ var Footer = React.createClass({
     return React.createElement(
       'div',
       { className: 'footer' },
-      'Made by Cyro Rodriguez for Jam3. 5/20/2016'
+      React.createElement(
+        'span',
+        null,
+        'Made by Cyro Rodriguez for Jam3. 5/20/2016'
+      )
     );
   }
 });
@@ -35931,9 +35935,43 @@ var Carrousel = React.createClass({
   },
 
   render: function () {
+    var styles = { height: "10vmin", width: "auto" };
+    var Decorators = [{
+      component: React.createClass({
+        displayName: 'component',
+
+        render() {
+          return React.createElement(
+            'div',
+            { onClick: this.props.previousSlide },
+            React.createElement('img', { className: 'arrow', src: 'public/media/arrow-left.png', style: styles })
+          );
+        }
+      }),
+      position: 'CenterLeft',
+      style: {
+        padding: 20
+      }
+    }, {
+      component: React.createClass({
+        displayName: 'component',
+
+        render() {
+          return React.createElement(
+            'div',
+            { onClick: this.props.nextSlide },
+            React.createElement('img', { className: 'arrow', src: 'public/media/arrow-right.png', style: styles })
+          );
+        }
+      }),
+      position: 'CenterRight',
+      style: {
+        padding: 20
+      }
+    }];
     return React.createElement(
       Carousel,
-      null,
+      { cellAlign: 'center', decorators: Decorators },
       this.eachImage()
     );
   }

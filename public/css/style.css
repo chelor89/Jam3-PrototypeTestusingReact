@@ -66,11 +66,14 @@
       display: block;
       margin: auto; }
 
+#Carousel .slider-slide {
+  vertical-align: middle !important; }
+
 #Carousel img {
   height: auto;
   width: 80vmin;
   display: block;
-  margin: auto auto; }
+  margin: auto; }
 
 #Share {
   color: #000000;
@@ -183,4 +186,4 @@
   color: #ffffff;
   text-align: center;
   font: 18px/normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-  padding-bottom: 1%; }
+  height: 3vmin; }

@@ -17,8 +17,39 @@ var Carrousel = React.createClass({
   },
 
   render: function(){
+    var styles = {height: "10vmin", width: "auto"};
+    var Decorators = [{
+        component: React.createClass({
+          render() {
+            return (
+              <div onClick={this.props.previousSlide}>
+                <img className="arrow" src='public/media/arrow-left.png' style={styles} />
+              </div>
+            )
+          }
+        }),
+        position: 'CenterLeft',
+        style: {
+          padding: 20
+        }
+      },
+      {
+          component: React.createClass({
+            render() {
+              return (
+                <div onClick={this.props.nextSlide}>
+                  <img className="arrow" src='public/media/arrow-right.png' style={styles} />
+                </div>
+              )
+            }
+          }),
+          position: 'CenterRight',
+          style: {
+            padding: 20
+          }
+        }];
     return (
-       <Carousel >
+       <Carousel cellAlign="center" decorators={Decorators}>
        {this.eachImage()}
       </Carousel>
     )
