@@ -13,8 +13,7 @@ var express = require('express')
 var app = express();
 app.use(cors());
 // publishing static elements
-app.use("/", express.static("./"));
-
+app.use("/public", express.static("public"));
 
 //retrieving last 5 tweets with #jam3 hashtag
 app.get('/jsonTwit', function (req, res) {
@@ -25,6 +24,8 @@ app.get('/jsonTwit', function (req, res) {
     res.setHeader('Content-Type', 'text/plain');
     res.send(JSON.stringify(data));
   });
+
+app.use(/.*/, express.static("./"));
 
 });
 app.listen(8080);

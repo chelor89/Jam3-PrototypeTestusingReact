@@ -35930,7 +35930,7 @@ var Carrousel = React.createClass({
 
   buildImages: function (list) {
     return list.map(function (val) {
-      return React.createElement('img', { src: "public/media/" + val + ".jpg", key: val });
+      return React.createElement('img', { src: "/public/media/" + val + ".jpg", key: val });
     });
   },
 
@@ -35944,7 +35944,7 @@ var Carrousel = React.createClass({
           return React.createElement(
             'div',
             { onClick: this.props.previousSlide },
-            React.createElement('img', { className: 'arrow', src: 'public/media/arrow-left.png', style: styles })
+            React.createElement('img', { className: 'arrow', src: '/public/media/arrow-left.png', style: styles })
           );
         }
       }),
@@ -35960,7 +35960,7 @@ var Carrousel = React.createClass({
           return React.createElement(
             'div',
             { onClick: this.props.nextSlide },
-            React.createElement('img', { className: 'arrow', src: 'public/media/arrow-right.png', style: styles })
+            React.createElement('img', { className: 'arrow', src: '/public/media/arrow-right.png', style: styles })
           );
         }
       }),
@@ -35987,8 +35987,8 @@ var Image = React.createClass({
 
 
   render: function () {
-    var imageURL = "public/media/jam3Logo.gif";
-    if (this.props.size == "small") imageURL = "public/media/jam3LogoM.gif";
+    var imageURL = "/public/media/jam3Logo.gif";
+    if (this.props.size == "small") imageURL = "/public/media/jam3LogoM.gif";
 
     return React.createElement("img", { src: imageURL, alt: "Jam3 Logotype" });
   }
@@ -36037,7 +36037,7 @@ var Share = React.createClass({
     return React.createElement(
       'div',
       null,
-      React.createElement('img', { className: 'fb-logo', src: 'public/media/faceLogo.png', alt: 'facebook logo' }),
+      React.createElement('img', { className: 'fb-logo', src: '/public/media/faceLogo.png', alt: 'facebook logo' }),
       React.createElement('img', { className: imgClass, src: 'http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG',
         alt: 'Kayak Lake Mountains' }),
       React.createElement(
@@ -36124,7 +36124,7 @@ var Twitter = React.createClass({
     return React.createElement(
       "div",
       null,
-      React.createElement("img", { className: "tw-logo", src: "public/media/twitterLogo.png", alt: "twitter logo" }),
+      React.createElement("img", { className: "tw-logo", src: "/public/media/twitterLogo.png", alt: "twitter logo" }),
       React.createElement(
         "div",
         null,
