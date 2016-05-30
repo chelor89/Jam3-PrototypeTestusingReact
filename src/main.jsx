@@ -17,14 +17,43 @@ var viewArr = [{"id":1,"name":"Image","type":Image},{"id":2,"name":"Text", "type
 {"id":3,"name":"Twitter","type":Twitter},{"id":4,"name":"Carousel","type":Carrousel},
 {"id":5,"name":"Share","type":Share}];
 
+var actual = "";
 
 var Main = React.createClass({
+  componentDidMount: function(){
+
+    var positions = [];
+    setTimeout(function() {
+      positions = viewArr.map(function(item){
+        var object = document.getElementById(item.name);
+        return {top: object.offsetTop, bottom: object.offsetTop + object.offsetHeight}
+      }.bind(this));
+    }, 800);
+
+    window.onscroll = function(){
+      var docMiddle = document.body.scrollTop + window.innerHeight / 2;
+      //console.log({middle: docMiddle, top: document.body.scrollTop, height: window.innerHeight});
+      var i = 0;
+
+      do{
+        i++;
+        if (docMiddle > positions[i].top && docMiddle < positions[i].bottom){
+          if (actual != viewArr[i].name){
+            actual = viewArr[i].name;
+            //console.log({name: viewArr[i].name, middle: docMiddle, divTop: positions[i].top, divBottom: positions[i].bottom});
+            window.history.pushState(viewArr[i].name, viewArr[i].name, "/" + viewArr[i].name);
+          }
+        }
+      }while(viewArr.length > i + 1 && !(docMiddle > positions[i].top && docMiddle < positions[i].bottom))
+    }
+  },
   getInitialState: function(){
     return {open: false};
   },
   handleMBClick: function(item){
     var dest = document.getElementById(item).offsetTop;
     scroll.scrollTo(dest);
+    window.history.pushState(item, item, "/" + item);
     this.setState({open: false});
   },
   mobileCheck: function(){
@@ -41,6 +70,7 @@ var Main = React.createClass({
       return "big";
     }
   },
+
   render: function(){
     return (
       <div >

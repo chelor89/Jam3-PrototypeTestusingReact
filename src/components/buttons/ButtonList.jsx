@@ -1,6 +1,6 @@
 var React = require('react');
 var Button = require('./Button.jsx');
-var Menu = require('react-burger-menu').slide;
+var Menu = require('react-burger-menu').push;
 
 
 var ButtonList = React.createClass({

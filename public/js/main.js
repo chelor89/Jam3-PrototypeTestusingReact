@@ -35866,7 +35866,7 @@ module.exports = Button;
 },{"react":282}],287:[function(require,module,exports){
 var React = require('react');
 var Button = require('./Button.jsx');
-var Menu = require('react-burger-menu').slide;
+var Menu = require('react-burger-menu').push;
 
 var ButtonList = React.createClass({
   displayName: 'ButtonList',
@@ -36093,8 +36093,8 @@ var Twitter = React.createClass({
         this.renderTweets(JSON.parse(xhttp.responseText));
       }
     }.bind(this);
-    //xhttp.open("GET", "http://" + window.location.hostname + ":8080?hash=hola", true);
-    xhttp.open("GET", "http://twitserve-63723.onmodulus.net/", true);
+    // xhttp.open("GET", "http://" + window.location.hostname + ":8080/jsonTwit?hash=hola", true);
+    xhttp.open("GET", "http://twitserve-63723.onmodulus.net/?hash=hola", true);
 
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
@@ -36154,15 +36154,45 @@ var scroll = Scroll.animateScroll;
 //viewArr = array of views. (Each view is a component)
 var viewArr = [{ "id": 1, "name": "Image", "type": Image }, { "id": 2, "name": "Text", "type": Text }, { "id": 3, "name": "Twitter", "type": Twitter }, { "id": 4, "name": "Carousel", "type": Carrousel }, { "id": 5, "name": "Share", "type": Share }];
 
+var actual = "";
+
 var Main = React.createClass({
   displayName: 'Main',
 
+  componentDidMount: function () {
+
+    var positions = [];
+    setTimeout(function () {
+      positions = viewArr.map(function (item) {
+        var object = document.getElementById(item.name);
+        return { top: object.offsetTop, bottom: object.offsetTop + object.offsetHeight };
+      }.bind(this));
+    }, 800);
+
+    window.onscroll = function () {
+      var docMiddle = document.body.scrollTop + window.innerHeight / 2;
+      //console.log({middle: docMiddle, top: document.body.scrollTop, height: window.innerHeight});
+      var i = 0;
+
+      do {
+        i++;
+        if (docMiddle > positions[i].top && docMiddle < positions[i].bottom) {
+          if (actual != viewArr[i].name) {
+            actual = viewArr[i].name;
+            //console.log({name: viewArr[i].name, middle: docMiddle, divTop: positions[i].top, divBottom: positions[i].bottom});
+            window.history.pushState(viewArr[i].name, viewArr[i].name, "/" + viewArr[i].name);
+          }
+        }
+      } while (viewArr.length > i + 1 && !(docMiddle > positions[i].top && docMiddle < positions[i].bottom));
+    };
+  },
   getInitialState: function () {
     return { open: false };
   },
   handleMBClick: function (item) {
     var dest = document.getElementById(item).offsetTop;
     scroll.scrollTo(dest);
+    window.history.pushState(item, item, "/" + item);
     this.setState({ open: false });
   },
   mobileCheck: function () {
@@ -36172,6 +36202,7 @@ var Main = React.createClass({
       return "big";
     }
   },
+
   render: function () {
     return React.createElement(
       'div',

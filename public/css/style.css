@@ -7,14 +7,15 @@
     padding: 0px;
     margin: 0px;
     float: right; }
-  #buttons button {
-    font: 15px /normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-    width: 90px;
-    padding: 8px;
-    background-color: #ffad33;
-    color: #ffffff;
-    border: 1px solid; }
-  #buttons button:hover {
+
+.mainButton {
+  font: 15px /normal Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+  width: 90px;
+  padding: 8px;
+  background-color: #ffad33;
+  color: #ffffff;
+  border: 1px solid; }
+  .mainButton:hover {
     background-color: #cc7a00; }
 
 #Image {
@@ -24,6 +25,8 @@
     display: block;
     margin: 0 auto;
     height: 400px; }
+    #Image img:hover {
+      animation-play-state: running; }
 
 #Text {
   padding: 5%;
@@ -50,6 +53,7 @@
     height: auto;
     width: 65vmin; }
   #Twitter .user {
+    vertical-align: top;
     display: inline-block;
     padding: 2%;
     margin: 2%;
@@ -81,7 +85,8 @@
   background: #ffffff;
   border: 6px solid #000000;
   padding: 3%;
-  text-align: center; }
+  text-align: center;
+  min-height: 50vh; }
   #Share div {
     margin: auto; }
   #Share .fb-logo {
