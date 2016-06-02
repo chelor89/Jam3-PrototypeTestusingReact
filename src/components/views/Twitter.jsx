@@ -11,7 +11,7 @@ var Twitter = React.createClass({
         this.renderTweets(JSON.parse(xhttp.responseText));
       }
     }.bind(this);
-    // xhttp.open("GET", "http://" + window.location.hostname + ":8080/jsonTwit?hash=hola", true);
+    // xhttp.open("GET", "http://" + window.location.hostname + ":8080/Jam3Test/jsonTwit?hash=hola", true);
     xhttp.open("GET", "http://twitserve-63723.onmodulus.net/?hash=hola", true);
 
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
@@ -32,7 +32,7 @@ var Twitter = React.createClass({
    render: function(){
     return (
       <div>
-      <img className="tw-logo" src="/public/media/twitterLogo.png" alt="twitter logo" />
+      <img className="tw-logo" src="/Jam3Test/public/media/twitterLogo.png" alt="twitter logo" />
       <div>
       {this.state.tweets}
       </div>

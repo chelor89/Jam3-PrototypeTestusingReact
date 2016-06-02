@@ -12,7 +12,7 @@ var Carrousel = React.createClass({
 
   buildImages: function(list) {
     return list.map(function(val){
-      return <img src={"/public/media/" + val + ".jpg"} key={val} />;
+      return <img src={"/Jam3Test/public/media/" + val + ".jpg"} key={val} />;
     })
   },
 
@@ -23,7 +23,7 @@ var Carrousel = React.createClass({
           render: function() {
             return (
               <div onClick={this.props.previousSlide}>
-                <img className="arrow" src='/public/media/arrow-left.png' style={styles} />
+                <img className="arrow" src='/Jam3Test/public/media/arrow-left.png' style={styles} />
               </div>
             )
           }
@@ -38,7 +38,7 @@ var Carrousel = React.createClass({
             render: function() {
               return (
                 <div onClick={this.props.nextSlide}>
-                  <img className="arrow" src='/public/media/arrow-right.png' style={styles} />
+                  <img className="arrow" src='/Jam3Test/public/media/arrow-right.png' style={styles} />
                 </div>
               )
             }

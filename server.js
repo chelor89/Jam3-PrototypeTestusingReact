@@ -14,12 +14,12 @@ var app = express();
 app.use(cors());
 
 // publishing static elements
-app.use('/public', express.static("public"));
+app.use('/Jam3Test/public', express.static("public"));
 
 
 
 //retrieving last 5 tweets with #jam3 hashtag
-app.get('/jsonTwit', function (req, res) {
+app.get('/Jam3Test/jsonTwit', function (req, res) {
   client.get('search/tweets', {q: '%23' + req.query.hash ,result_type: 'recent',count: 5},
   function(error,data,response){
     if(error) throw error;
