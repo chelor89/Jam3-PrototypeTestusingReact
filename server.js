@@ -3,7 +3,7 @@ var express = require('express')
   , Twit = require('twit');
 
   //setting twitter oAuth access codes
-  var client = new Twit({
+  var client = new Twit( {
   consumer_key: 'ofs9GL5UL7HGcJxpqRVVuKFIF',
   consumer_secret: 'vAQXMlyB0UT9J7AKlbon9ubrIouIUuTMAmsi140u64TrUQpESr',
   access_token: '432972257-z8OV8iHKW9WGMrozuv6mjK0cGpwannZVCRJRhfN0',
@@ -12,8 +12,11 @@ var express = require('express')
 
 var app = express();
 app.use(cors());
+
 // publishing static elements
-app.use("/public", express.static("public"));
+app.use('/public', express.static("public"));
+
+
 
 //retrieving last 5 tweets with #jam3 hashtag
 app.get('/jsonTwit', function (req, res) {
@@ -24,9 +27,9 @@ app.get('/jsonTwit', function (req, res) {
     res.setHeader('Content-Type', 'text/plain');
     res.send(JSON.stringify(data));
   });
+});
 
 app.use(/.*/, express.static("./"));
 
-});
 app.listen(8080);
 console.log('Listening on port 8080...');
