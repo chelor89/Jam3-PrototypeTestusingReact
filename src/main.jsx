@@ -52,7 +52,7 @@ var Main = React.createClass({
           if (actual != viewArr[i].name){
             actual = viewArr[i].name;
             //console.log({name: viewArr[i].name, middle: docMiddle, divTop: positions[i].top, divBottom: positions[i].bottom});
-            window.history.pushState(viewArr[i].name, viewArr[i].name, "/" + viewArr[i].name);
+            window.history.pushState(viewArr[i].name, viewArr[i].name, "/Jam3Test/"+ viewArr[i].name);
           }
         }
       }while(viewArr.length > i + 1 && !(docMiddle > positions[i].top && docMiddle < positions[i].bottom))
@@ -67,7 +67,7 @@ var Main = React.createClass({
   _handleMBClick: function(item){
     var dest = document.getElementById(item).offsetTop;
     scroll.scrollTo(dest);
-    window.history.pushState(item, item, "/" + item);
+    window.history.pushState(item, item, "/Jam3Test/" + item);
     if (this._mobileCheck()){
       this.setState({open: false});
     }
