@@ -186,14 +186,16 @@ body {
     border-style: 5px solid; }
 
 .view {
-  clear: both;
-  position: relative; }
+  clear: both; }
   .view > div {
     max-height: 100vh;
     padding: 0px;
     height: auto;
-    background: #000000;
-    color: #ffffff; }
+    background: #000000; }
+    .view > div:nth-child(2n) {
+      color: #ffffff; }
+    .view > div:nth-child(2n+1) {
+      color: #000000; }
 
 .footer {
   background: #000000;

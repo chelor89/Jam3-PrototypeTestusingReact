@@ -25,14 +25,17 @@ body
 
 .view
   clear: both
-  position: relative
+  position:relative
   > div
     max-height: 100vh
     //margin-bottom: 0.5vh
     padding: 0px
     height: auto
     background: #000000
-    color: #ffffff
+    &:nth-child(2n)
+      color: #ffffff
+    &:nth-child(2n+1)
+      color: #000000
 
 .footer
   background: #000000
