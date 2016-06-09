@@ -2,15 +2,15 @@ var React = require('react');
 var Carousel = require('nuka-carousel');
 
 var Carrousel = React.createClass({
-  eachImage: function(){
+  _eachImage: function(){
     var list = [];
     for (i = 1; i <= 7; i++){
         list.push(i);
       };
-    return this.buildImages(list);
+    return this._buildImages(list);
   },
 
-  buildImages: function(list) {
+  _buildImages: function(list) {
     return list.map(function(val){
       return <img src={"/Jam3Test/public/media/" + val + ".jpg"} key={val} />;
     })
@@ -50,7 +50,7 @@ var Carrousel = React.createClass({
         }];
     return (
        <Carousel cellAlign="center" decorators={Decorators}>
-       {this.eachImage()}
+       {this._eachImage()}
       </Carousel>
     )
   }

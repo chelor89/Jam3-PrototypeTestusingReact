@@ -18,7 +18,7 @@ var Share = React.createClass({
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
   },
-  share: function() {
+  _share: function() {
     FB.ui(
      {
       method: 'share',
@@ -27,7 +27,7 @@ var Share = React.createClass({
   },
   render: function(){
     var imgClass = "share-img-big"
-    if (this.props.size == "small"){
+    if (this.props.mobile){
       imgClass = "share-img-small"
     }
     return (
@@ -35,7 +35,7 @@ var Share = React.createClass({
       <img className="fb-logo" src="/Jam3Test/public/media/faceLogo.png" alt="facebook logo" />
       <img className={imgClass} src="http://images.huffingtonpost.com/2015-01-23-121121_BURKARD_101629.JPG"
        alt="Kayak Lake Mountains" />
-      <button type="button" onClick={this.share}>Share</button>
+      <button type="button" onClick={this._share}>Share</button>
       </div>
     )
   }

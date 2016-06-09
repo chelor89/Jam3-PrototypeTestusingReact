@@ -8,7 +8,7 @@ var Twitter = React.createClass({
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
       if (xhttp.readyState == 4 && xhttp.status == 200) {
-        this.renderTweets(JSON.parse(xhttp.responseText));
+        this._renderTweets(JSON.parse(xhttp.responseText));
       }
     }.bind(this);
     // xhttp.open("GET", "http://" + window.location.hostname + ":8080/Jam3Test/jsonTwit?hash=hola", true);
@@ -17,7 +17,7 @@ var Twitter = React.createClass({
     xhttp.setRequestHeader("Access-Control-Allow-Origin", window.location.href);
     xhttp.send();
   },
-  renderTweets: function(props) {
+  _renderTweets: function(props) {
     var rendTweets = props.statuses.map(function(item){
       return (
         <div key={item.id} className="user" >

@@ -23,6 +23,7 @@
   "dependencies": {
     "cors": "^2.7.1",
     "express": "^4.13.4",
+    "gsap": "^1.18.5",
     "node-sass": "^3.7.0",
     "nodemon": "^1.9.2",
     "nuka-carousel": "^1.2.1",

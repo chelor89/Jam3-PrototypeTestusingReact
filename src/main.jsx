@@ -23,18 +23,29 @@ var Main = React.createClass({
   componentDidMount: function(){
 
     var positions = [];
+
     setTimeout(function() {
-      positions = viewArr.map(function(item){
+      positions = viewArr.map(item => {
         var object = document.getElementById(item.name);
         return {top: object.offsetTop, bottom: object.offsetTop + object.offsetHeight}
-      }.bind(this));
+      });
     }, 800);
 
     window.onscroll = function(){
-      var docMiddle = document.body.scrollTop + window.innerHeight / 2;
+      var viewsTop = document.getElementById('views').offsetTop;
+      var docTop = document.body.scrollTop;
+      var docMiddle = docTop + window.innerHeight / 2;
       //console.log({middle: docMiddle, top: document.body.scrollTop, height: window.innerHeight});
-      var i = 0;
+      if (docTop > viewsTop){
+        if (!this.state.stickyButtons)
+          this.setState({stickyButtons: true});
+        // buttons.setAttribute("style", "position: fixed");
+      }else {
+        if (this.state.stickyButtons)
+          this.setState({stickyButtons: false});
+      }
 
+      var i = 0;
       do{
         i++;
         if (docMiddle > positions[i].top && docMiddle < positions[i].bottom){
@@ -45,37 +56,38 @@ var Main = React.createClass({
           }
         }
       }while(viewArr.length > i + 1 && !(docMiddle > positions[i].top && docMiddle < positions[i].bottom))
-    }
+    }.bind(this)
   },
   getInitialState: function(){
-    return {open: false};
+    return {
+      open: false,
+      stickyButtons: false
+      };
   },
-  handleMBClick: function(item){
+  _handleMBClick: function(item){
     var dest = document.getElementById(item).offsetTop;
     scroll.scrollTo(dest);
     window.history.pushState(item, item, "/" + item);
-    this.setState({open: false});
+    if (this._mobileCheck()){
+      this.setState({open: false});
+    }
   },
-  mobileCheck: function(){
-    if( navigator.userAgent.match(/Android/i)
+  _mobileCheck: function(){
+    return ( navigator.userAgent.match(/Android/i)
     || navigator.userAgent.match(/webOS/i)
     || navigator.userAgent.match(/iPhone/i)
     || navigator.userAgent.match(/iPad/i)
     || navigator.userAgent.match(/iPod/i)
     || navigator.userAgent.match(/BlackBerry/i)
     || navigator.userAgent.match(/Windows Phone/i)
-    ){
-      return "small";
-    }else {
-      return "big";
-    }
+  );
   },
 
   render: function(){
     return (
       <div >
-      <ButtonList handleClick={this.handleMBClick} views={viewArr} size={this.mobileCheck()} open={this.state.open} />
-      <ViewList views={viewArr} size={this.mobileCheck()} />
+      <ButtonList handleClick={this._handleMBClick} views={viewArr} mobile={this._mobileCheck()} open={this.state.open} sticky={this.state.stickyButtons} />
+      <ViewList views={viewArr} mobile={this._mobileCheck()} />
       <Footer />
       </div>
     )
